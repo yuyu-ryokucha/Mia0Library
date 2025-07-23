@@ -10,6 +10,9 @@ let package = Package(
         .library(
             name: "Mia0Library",
             targets: ["Mia0Library"]),
+        .library(
+            name: "shared",
+            targets: ["shared"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -19,7 +22,9 @@ let package = Package(
             path: "shared.xcframework"
         ),
         .target(
-            name: "Mia0Library"),
+            name: "Mia0Library",
+            dependencies: ["shared"]
+        ),
         .testTarget(
             name: "Mia0LibraryTests",
             dependencies: ["Mia0Library"]
